@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+#gameArea {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+#barista {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-image: url('hermana.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: 50%;
+    left: 50%;
+    /* transform: translate(-50%, -50%); */
+}
+
+#score {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 48px;
+    color: #000; /* Change color as needed */
+    background-color: rgba(255, 255, 255, 0.7); /* Optional: Add a semi-transparent background */
+    padding: 10px 20px; /* Optional: Add some padding */
+    border-radius: 10px; /* Optional: Add rounded corners */
+}
+
+.enemy {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.coffee {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+}
