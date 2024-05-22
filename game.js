@@ -1,6 +1,7 @@
 const barista = document.getElementById('barista');
 const gameArea = document.getElementById('gameArea');
 const scoreBoard = document.getElementById('score');
+const banner = document.getElementById('banner');
 let score = 0;
 
 const enemySprites = [
@@ -14,7 +15,11 @@ const enemySprites = [
 
 const enemies = [];
 const coffees = [];
+const threshold = 10
 let enemyInterval = 2000; // Starting interval for enemy creation
+
+var bagpipesPlaying = false
+const bagpipes = new Audio('bagpipes.mp3')
 
 function createEnemy() {
     const enemy = document.createElement('div');
@@ -65,6 +70,7 @@ function moveEnemies() {
         enemy.style.top = `${enemyRect.top + Math.sin(angle) * 2}px`;
 
         if (checkCollision(enemy, barista)) {
+            bagpipes.pause()
             const score = document.getElementById('score').textContent
             alert('Failing means yer playing! Your score was ' + score + '.');
             resetGame();
@@ -126,6 +132,9 @@ function checkCollision(rect1, rect2) {
 }
 
 function gameLoop() {
+    if (score > threshold & bagpipesPlaying === false) {
+        bagpipes.play()
+    }
     moveEnemies();
     moveCoffees();
     requestAnimationFrame(gameLoop);
